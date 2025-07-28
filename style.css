@@ -109,7 +109,6 @@ h6 {
   font-family: sans-serif;
 }
 .book-info {
-  /* width: fit-content; */
   background: rgba(148, 86, 86, 0.45);
   margin: 12px auto;
   border-radius: 10px;
@@ -117,8 +116,13 @@ h6 {
   font-size: small;
   font-weight: 600;
   font-family: sans-serif;
+  word-break: break-all;
 }
-
+.author{
+  font-style: italic;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7)
+}
 /* Delete Btn*/
 .del-btn {
   position: absolute;

@@ -39,7 +39,8 @@ addBtn.addEventListener("click", () => {
 
   const bookAuthor = document.createElement("div");
   bookAuthor.classList.add("book-info");
-
+  bookAuthor.classList.add("author");
+  
   const delBtn = document.createElement("img");
   delBtn.classList.add("del-btn");
   delBtn.src = "delete.svg";
