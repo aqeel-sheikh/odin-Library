@@ -11,18 +11,14 @@
       <div class="header">My Library</div>
       <div class="toolbar">
         <label for="new-book-name">
-          Book Name:<input id="new-book-name" type="text" name="newBookName" />
+          Book Name:<input id="new-book-name" type="text" name="newBookName" required />
         </label>
         <label for="new-book-author">
-          Author:<input id="new-book-author" type="text" name="newBookAuthor" />
+          Author:<input id="new-book-author" type="text" name="newBookAuthor" required/>
         </label>
-        <button class="add-btn">Add</button>
+        <button id="add-btn">Add</button>
       </div>
-      <div class="books">
-        <div class="book">
-          <div class="lines">Mastery</div>
-          <div class="lines">Robert Greene</div>
-          <img class="del-btn" src="delete.svg">
+      <div class="book-shelf">
         </div>
       </div>
     </div>

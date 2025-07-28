@@ -85,7 +85,7 @@ h6 {
   align-items: center;
   justify-content: space-evenly;
 }
-.books {
+.book-shelf {
   grid-area: 3 / 1 / 4 / 4;
   text-align: center;
   display: flex;
@@ -108,7 +108,7 @@ h6 {
   color: white;
   font-family: sans-serif;
 }
-.lines {
+.book-info {
   /* width: fit-content; */
   background: rgba(148, 86, 86, 0.45);
   margin: 12px auto;
