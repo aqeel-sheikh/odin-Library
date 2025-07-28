@@ -1,8 +1,3 @@
-// All of your book objects are going to be stored in an array,
-// so you’ll need a constructor for books.
-// Then, add a separate function to the script (not inside the constructor) that can take some arguments, create a book from those arguments, and store the new book object into an array.
-// Also, all of your book objects should have a unique id, which can be generated using crypto.randomUUID(). This ensures each book has a unique and stable identifier, preventing issues when books are removed or rearranged.
-
 let myLibrary = [];
 
 function Book(bookName, bookAuthor, bookID) {
@@ -20,14 +15,20 @@ function addBookToLibrary(bookName, bookAuthor) {
 const addBtn = document.querySelector("#add-btn");
 const bookShelf = document.querySelector(".book-shelf");
 
+
+
 addBtn.addEventListener("click", () => {
-  const newBookName = document.querySelector("#new-book-name").value;
-  const newBookAuthor = document.querySelector("#new-book-author").value;
+  const newBookNameElement = document.querySelector("#new-book-name");
+  const newBookName = newBookNameElement.value;
+
+  const newBookAuthorElement = document.querySelector("#new-book-author");
+  const newBookAuthor = newBookAuthorElement.value;
 
   if (!newBookName || !newBookAuthor) {
-    console.log("Cant log this book");
+    console.log("Missing either Name or Author or Both");
     return;
   }
+
   addBookToLibrary(newBookName, newBookAuthor);
 
   const newBook = document.createElement("div");
@@ -41,7 +42,7 @@ addBtn.addEventListener("click", () => {
 
   const delBtn = document.createElement("img");
   delBtn.classList.add("del-btn");
-  delBtn.src = "/delete.svg";
+  delBtn.src = "delete.svg";
 
   newBook.append(bookName);
   newBook.append(bookAuthor);
@@ -51,11 +52,13 @@ addBtn.addEventListener("click", () => {
   bookAuthor.textContent = newBookAuthor;
 
   bookShelf.append(newBook);
+
+  delBtn.addEventListener("click", ()=>{
+    newBook.remove()
+    })
+
+  newBookNameElement.value = null;
+  newBookAuthorElement.value = null;
 });
 
-// const div = document.querySelector(".library")
-// myLibrary.forEach(book => {
-//     const p = document.createElement("p")
-//     p.textContent = "Book:" + book.name + " " + book.author
-//     div.appendChild(p)
-// })
+
