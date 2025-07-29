@@ -93,6 +93,7 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  flex-wrap: wrap;
   color: #427c8d;
   font-weight: 560;
 }
@@ -106,6 +107,7 @@ h6 {
   outline: none;
   color: #52a7c1;
   font-weight: 500;
+  flex: 1;
 }
 #add-btn {
   background: none;
