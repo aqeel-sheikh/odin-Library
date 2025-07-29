@@ -60,6 +60,7 @@ addBtn.addEventListener("click", () => {
   delBtn.addEventListener("click", () => {
     newBook.remove();
   });
+
   const statuses = [
     "Not Started",
     "Reading",
@@ -73,6 +74,6 @@ addBtn.addEventListener("click", () => {
     statusIndex = (statusIndex + 1) % statuses.length;
     status.textContent = statuses[statusIndex];
   });
-  newBookNameElement.value = null;
-  newBookAuthorElement.value = null;
+  newBookNameElement.value = "";
+  newBookAuthorElement.value = "";
 });
