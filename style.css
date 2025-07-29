@@ -134,9 +134,9 @@ h6 {
 .book {
   width: 150px;
   height: 200px;
-  background: rgba(255, 255, 255, 0.1); /* semi-transparent */
-  border-radius: 8px 30px 30px 8px; /* spine on left, rounded on right */
-  border-left: 6px solid rgba(255, 255, 255, 0.3); /* book spine */
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px 30px 30px 8px;
+  border-left: 6px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -144,7 +144,16 @@ h6 {
   padding: 1rem;
   color: white;
   font-family: sans-serif;
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
 }
+
+.book:hover {
+  transform: scale(1.05) rotateZ(-1deg);
+  box-shadow: 0 12px 40px rgba(82, 167, 193, 0.4); /* glow */
+  border-left: 6px solid #194350;
+}
+
 .book-info {
   background: rgba(148, 86, 86, 0.45);
   margin: 12px auto;
