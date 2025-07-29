@@ -15,8 +15,6 @@ function addBookToLibrary(bookName, bookAuthor) {
 const addBtn = document.querySelector("#add-btn");
 const bookShelf = document.querySelector(".book-shelf");
 
-
-
 addBtn.addEventListener("click", () => {
   const newBookNameElement = document.querySelector("#new-book-name");
   const newBookName = newBookNameElement.value;
@@ -40,11 +38,16 @@ addBtn.addEventListener("click", () => {
   const bookAuthor = document.createElement("div");
   bookAuthor.classList.add("book-info");
   bookAuthor.classList.add("author");
-  
+
+  const status = document.createElement("p");
+  status.classList.add("status");
+  status.textContent = "Status";
+
   const delBtn = document.createElement("img");
   delBtn.classList.add("del-btn");
   delBtn.src = "delete.svg";
 
+  newBook.append(status);
   newBook.append(bookName);
   newBook.append(bookAuthor);
   newBook.append(delBtn);
@@ -54,12 +57,22 @@ addBtn.addEventListener("click", () => {
 
   bookShelf.append(newBook);
 
-  delBtn.addEventListener("click", ()=>{
-    newBook.remove()
-    })
+  delBtn.addEventListener("click", () => {
+    newBook.remove();
+  });
+  const statuses = [
+    "Not Started",
+    "Reading",
+    "Completed",
+    "On Hold",
+    "Dropped",
+  ];
+  let statusIndex = 0;
 
+  status.addEventListener("click", () => {
+    statusIndex = (statusIndex + 1) % statuses.length;
+    status.textContent = statuses[statusIndex];
+  });
   newBookNameElement.value = null;
   newBookAuthorElement.value = null;
 });
-
-
