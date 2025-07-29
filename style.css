@@ -18,6 +18,7 @@
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  font-family: sans-serif;
   background-color: #52a7c1;
   background-image: linear-gradient(315deg, #52a7c1 0%, #b3f6d8 74%);
 }
@@ -77,6 +78,14 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: center;
+  
+  border: none;
+  border-radius: 10px;
+  background: rgba(5, 190, 223, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  color: #52a7c1;
+  font-weight: 700;
 }
 .toolbar {
   grid-area: 2 / 1 / 3 / 3;
@@ -84,6 +93,35 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  color: #427c8d;
+  font-weight: 560;
+}
+.input{
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 1px 10px;
+  outline: none;
+  color: #52a7c1;
+  font-weight: 500;
+}
+#add-btn{
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 15px;
+}
+#add-btn img{
+  width: 25px;
+}
+#add-btn img:hover{
+  transform: scale(0.9);
+}
+.input:valid{
+  outline: 1px solid #52a7c1;
+  
 }
 .book-shelf {
   grid-area: 3 / 1 / 4 / 4;
