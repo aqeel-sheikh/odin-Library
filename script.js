@@ -1,15 +1,22 @@
-let myLibrary = [];
+class Book {
+  static myLibrary = [];
 
-function Book(bookName, bookAuthor, bookID) {
-  this.name = bookName;
-  this.author = bookAuthor;
-  this.ID = bookID;
-}
+  constructor(bookName, bookAuthor) {
+    this.name = bookName;
+    this.author = bookAuthor;
+    this.ID = crypto.randomUUID();
+  }
 
-function addBookToLibrary(bookName, bookAuthor) {
-  const uuid = crypto.randomUUID();
-  let newBook = new Book(bookName, bookAuthor, uuid);
-  myLibrary.push(newBook);
+  static addBookToLibrary(bookName, bookAuthor) {
+    const newBook = new Book(bookName, bookAuthor);
+    Book.myLibrary.push(newBook);
+    return newBook;
+  }
+  static removeBookFromLibrary(bookToRemove) {
+    Book.myLibrary = Book.myLibrary.filter(
+      (book) => book.ID !== bookToRemove.ID
+    );
+  }
 }
 
 const addBtn = document.querySelector("#add-btn");
@@ -27,7 +34,7 @@ addBtn.addEventListener("click", () => {
     return;
   }
 
-  addBookToLibrary(newBookName, newBookAuthor);
+  const currentBook = Book.addBookToLibrary(newBookName, newBookAuthor);
 
   const newBook = document.createElement("div");
   newBook.classList.add("book");
@@ -41,7 +48,6 @@ addBtn.addEventListener("click", () => {
 
   const status = document.createElement("p");
   status.classList.add("status");
-  status.textContent = "Status";
 
   const delBtn = document.createElement("img");
   delBtn.classList.add("del-btn");
@@ -59,6 +65,7 @@ addBtn.addEventListener("click", () => {
 
   delBtn.addEventListener("click", () => {
     newBook.remove();
+    Book.removeBookFromLibrary(currentBook);
   });
 
   const statuses = [
@@ -69,6 +76,7 @@ addBtn.addEventListener("click", () => {
     "Dropped",
   ];
   let statusIndex = 0;
+  status.textContent = statuses[statusIndex];
 
   status.addEventListener("click", () => {
     statusIndex = (statusIndex + 1) % statuses.length;

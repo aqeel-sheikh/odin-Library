@@ -119,6 +119,9 @@ h6 {
   width: 25px;
 }
 #add-btn img:hover {
+  transform: scale(1.1);
+}
+#add-btn img:active{
   transform: scale(0.9);
 }
 .input:valid {
@@ -183,7 +186,9 @@ h6 {
   transform: scale(1.1);
   cursor: pointer;
 }
-
+.del-btn:active{
+  transform: scale(0.9);
+}
 /* Status button */
 .status {
   color: #427c8d;
